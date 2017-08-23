@@ -40,25 +40,24 @@ public final class Dealer {
   private void populateDeck() {
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
-        deck.getCards().add(new Card(rank, suit));
+        deck.addCard(new Card(rank, suit));
       }
     }
   }
 
   /**
    * shuffle cards by randomly picking one card at a time from original
-   * deck and putting that into new deck, returning the new deck once
-   * the original deck is empty
+   * deck and putting that into new deck, replacing the original deck with
+   * the new deck
    */
   public void shuffle() {    
-    int size;
     List<Card> shuffledCards = new ArrayList<Card>();
-    while (!deck.getCards().isEmpty()) {
-      size = deck.getCards().size();
-      Card randomCard = deck.getCards().remove(RANDOM.nextInt(size));
+    while (deck.hasCards()) {
+      // remove a card with index [0, numCards)
+      Card randomCard = deck.removeCard(RANDOM.nextInt(deck.getNumCardsRemaining()));
       shuffledCards.add(randomCard);
     }
-    deck.setCards(shuffledCards);
+    deck.replaceCards(shuffledCards);
   }
 
   /**
@@ -66,18 +65,19 @@ public final class Dealer {
    * back to 52 cards.
    */
   public void refreshDeck() {
-    deck.getCards().clear();
+    deck.wipeCards();
     populateDeck();
     shuffle();
   }
 
   /**
    * removes card from deck and deals it. when deck is empty, return null.
-   * invoking this method should be followed by a null-check usually
+   * invoking this method should be followed by a null-check usually. index 0
+   * is visualized as the 'top' of the deck
    * @return dealt card
    */
   public Card dealOneCard() {
-    return deck.getCards().isEmpty() ? null : deck.getCards().remove(0);
+    return deck.removeCard(0);
   }
 
 }
