@@ -1,6 +1,7 @@
 A **deck of cards** you can shuffle and deal one at a time, implemented in Java 8. 
 
 Application entry point is in `cards/src/main/java/koch/cards/App.java`.
+The output of the app is in `output.txt`.
 
 Everything else is in `cards/src/main/java/koch/cards/{models,helpers}`.
 
