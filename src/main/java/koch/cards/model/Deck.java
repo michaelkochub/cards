@@ -1,5 +1,6 @@
 package koch.cards.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,9 +9,22 @@ import java.util.List;
  * @author michaelkochub
  */
 public class Deck {
-  List<Card> cards;
+  private List<Card> cards;
+  
+  public Deck() {
+    this.cards = new ArrayList<Card>();
+  }
   
   public Deck(List<Card> cards) {
     this.cards = cards;
   }
+  
+  public List<Card> getCards() {
+    return cards;
+  }
+  
+  public void setCards(List<Card> cards) {
+    this.cards = cards;
+  }
+ 
 }
