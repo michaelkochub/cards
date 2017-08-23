@@ -31,10 +31,6 @@ public class Dealer {
     return dealer;
   }
 
-  public Deck getDeck() {
-    return deck;
-  }
-
   private void populateDeck() {
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
