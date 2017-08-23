@@ -16,7 +16,7 @@ import koch.cards.model.Suit;
  * 
  * @author michaelkochub
  */
-public class Dealer {
+public final class Dealer {
 
   private static Dealer dealer;
   private static Random random = new Random();
@@ -24,6 +24,10 @@ public class Dealer {
 
   private Dealer() { }
 
+  /**
+   * 
+   * @return lazily instantiated dealer
+   */
   public static Dealer getDealer() {
     if (dealer == null) {
       dealer = new Dealer();
@@ -36,30 +40,44 @@ public class Dealer {
   private void populateDeck() {
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
-        dealer.deck.getCards().add(new Card(rank, suit));
+        deck.getCards().add(new Card(rank, suit));
       }
     }
   }
 
+  /**
+   * shuffle cards by randomly picking one card at a time from original
+   * deck and putting that into new deck, returning the new deck once
+   * the original deck is empty
+   */
   public void shuffle() {    
     int size;
     List<Card> shuffledCards = new ArrayList<Card>();
-    while (!dealer.deck.getCards().isEmpty()) {
-      size = dealer.deck.getCards().size();
-      Card randomCard = dealer.deck.getCards().remove(random.nextInt(size));
+    while (!deck.getCards().isEmpty()) {
+      size = deck.getCards().size();
+      Card randomCard = deck.getCards().remove(random.nextInt(size));
       shuffledCards.add(randomCard);
     }
-    dealer.deck.setCards(shuffledCards);
+    deck.setCards(shuffledCards);
   }
 
+  /**
+   * empty the deck, re-populate it, and shuffle it. this restores deck
+   * back to 52 cards.
+   */
   public void refreshDeck() {
-    dealer.deck.getCards().clear();
-    dealer.populateDeck();
-    dealer.shuffle();
+    deck.getCards().clear();
+    populateDeck();
+    shuffle();
   }
 
+  /**
+   * removes card from deck and deals it. when deck is empty, return null.
+   * invoking this method should be followed by a null-check usually
+   * @return dealt card
+   */
   public Card dealOneCard() {
-    return dealer.deck.getCards().isEmpty() ? null : dealer.deck.getCards().remove(0);
+    return deck.getCards().isEmpty() ? null : deck.getCards().remove(0);
   }
 
 }
