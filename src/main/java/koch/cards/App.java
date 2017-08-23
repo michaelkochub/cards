@@ -1,8 +1,6 @@
 package koch.cards;
 
-import org.apache.log4j.Logger;
 import koch.cards.helpers.Dealer;
-import koch.cards.model.Card;
 
 /**
  * Simple application to instantiate a deck, shuffle it, and deal cards one
