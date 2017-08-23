@@ -26,6 +26,6 @@ Possible Improvements:
 - Make [Dealer.java][dealer] threadsafe
 - Refactor code
 - Add exception handling
-- Include more features
+- Include more features (add a Player class, a Game class, etc)
 
 [dealer]: https://github.com/michaelkochub/cards/blob/master/src/main/java/koch/cards/helpers/Dealer.java

@@ -3,8 +3,9 @@ package koch.cards;
 import koch.cards.helpers.Dealer;
 
 /**
- * Simple application to instantiate a deck, shuffle it, and deal cards one
- * at a time
+ * Simple application to instantiate a dealer, who can 
+ * shuffle a deck, deal cards one at a time, and
+ * regenerate the deck whenever you want.
  *
  * @author michaelkochub
  */

@@ -10,7 +10,9 @@ import koch.cards.model.Suit;
 
 /**
  * Dealer class responsible for shuffling and dealing cards as well as instantiating the deck. The
- * dealer in effect is the deck manager.
+ * dealer in effect is the deck manager. The dealer can deal a card, shuffle the deck, and
+ * regenerate the deck. The dealer cannot show the deck... although that would be helpful
+ * for the players.
  * 
  * @author michaelkochub
  */
