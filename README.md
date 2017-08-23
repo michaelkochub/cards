@@ -1,4 +1,4 @@
-A **deck of cards** you can shuffle and deal one at a time, in Java. 
+A **deck of cards** you can shuffle and deal one at a time, implemented in Java 8. 
 
 Application entry point is in `cards/src/main/java/koch/cards/App.java`.
 
@@ -15,7 +15,8 @@ $ mvn exec:java -Dexec.mainClass="koch.cards.App”
 or
 
 ```bash
-mvn package; java -cp target/cards-0.0.1-SNAPSHOT.jar koch.cards.App
+$ mvn package
+$ java -cp target/cards-0.0.1-SNAPSHOT.jar koch.cards.App
 ```
 
 Possible Improvements:
