@@ -19,7 +19,7 @@ import koch.cards.model.Suit;
 public final class Dealer {
 
   private static Dealer dealer;
-  private static Random random = new Random();
+  private static final Random RANDOM = new Random();
   private final Deck deck = new Deck();
 
   private Dealer() { }
@@ -55,7 +55,7 @@ public final class Dealer {
     List<Card> shuffledCards = new ArrayList<Card>();
     while (!deck.getCards().isEmpty()) {
       size = deck.getCards().size();
-      Card randomCard = deck.getCards().remove(random.nextInt(size));
+      Card randomCard = deck.getCards().remove(RANDOM.nextInt(size));
       shuffledCards.add(randomCard);
     }
     deck.setCards(shuffledCards);
