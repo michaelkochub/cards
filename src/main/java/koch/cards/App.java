@@ -15,10 +15,25 @@ public class App {
   
   public static void main(String[] args) {
     Dealer dealer = Dealer.getDealer();
-    dealer.shuffle();    
     
-    for (int i = 0; i < SIZE; i++) {
+    // Print out randomly shuffled deck and then
+    // two 'no cards' like '52: null' and '53: null'
+    printCards(dealer, SIZE + 2);
+    
+    dealer.refreshDeck();
+    
+    printCards(dealer, 10);
+    
+    dealer.shuffle();
+    
+    printCards(dealer, 5);
+    
+  }
+  
+  public static void printCards(Dealer dealer, int numIterations) {
+    System.out.println("-------------------");
+    for (int i = 0; i < numIterations; i++) {
       System.out.println(String.format("%d: %s", i, dealer.dealOneCard()));
-    }
+    }    
   }
 }
